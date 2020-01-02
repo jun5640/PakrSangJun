@@ -1,0 +1,32 @@
+﻿@charset "UTF-8";
+.menu-list {
+	overflow-y:auto;
+	padding:5px;
+    max-height:75vh;
+}
+.menu-body {
+	overflow-y:auto;
+	padding:5px;
+    color: inherit;
+    background-color: #eee;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+.question_optoin_view { 
+	display:none;
+}
+.requst-wait { 
+	display:none;
+}
+.requst-wait span {
+    display:block;
+    text-align: center;
+}
+#user-detail-display {
+	overflow-y:auto;
+	padding:5px;
+    max-height:75vh;
+}
+.optoin-type-select {
+    display:none;
+}
