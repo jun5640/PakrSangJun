@@ -5,9 +5,12 @@
 API->Android studio(쓰레드)->D3D->C#->Unity
 
 개인작업물
-
 Unity
 로그라이크 장르(모바일)
+Node.js Mysql 간단한 post 통신 구현.
+
+
 
 따로 공부할 것
 언리얼 엔진
+
