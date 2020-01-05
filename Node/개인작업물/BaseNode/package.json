@@ -1,0 +1,11 @@
+{
+  "name": "basenode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "basenode"
+  },
+  "author": "",
+  "license": "ISC"
+}
