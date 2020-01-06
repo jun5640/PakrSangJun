@@ -1,0 +1,9 @@
+﻿  Timer.cpp
+c:\work\pakrsangjun\학원\winapi\code\timer\timer.cpp(82): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\work\pakrsangjun\학원\winapi\code\timer\timer.cpp(85): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\work\pakrsangjun\학원\winapi\code\timer\timer.cpp(85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\work\pakrsangjun\학원\winapi\code\timer\timer.cpp(88): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\work\pakrsangjun\학원\winapi\code\timer\timer.cpp(88): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\work\pakrsangjun\학원\winapi\code\timer\timer.cpp(91): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\work\pakrsangjun\학원\winapi\code\timer\timer.cpp(91): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Timer.vcxproj -> C:\work\PakrSangJun\학원\WinAPI\Code\Timer\Debug\Timer.exe

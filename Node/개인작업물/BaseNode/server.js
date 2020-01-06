@@ -10,7 +10,7 @@ var compression = require('compression');
 var morgan = require('morgan');
 
 //const dbPool = require("./lib/mysql.js")
-const memStore = require('./lib/memcached');
+//const memStore = require('./lib/memcached');
 const type = require('./common/type.js');
 var api = require('./routes/api.js');
 var routes = require('./routes/routes.js');

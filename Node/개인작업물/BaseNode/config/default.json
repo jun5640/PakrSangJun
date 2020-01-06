@@ -1,0 +1,28 @@
+{
+    "title": "",
+    "table": "table",
+    "mysql": {
+      "host": "127.0.0.1",
+      "port": "3306",
+      "username": "",
+      "password": " ",
+      "database": "",
+      "limit": 10
+    },
+    "memcached": {
+      "hosts": [ "127.0.0.1:11211" ]
+    },
+    "google": {
+      "packageName": "",
+      "key": ""
+    },
+    "apple": {
+      "packageName": "",
+      "key": ""
+    },
+    "port": 15001,
+    "log": {
+        "level": 1
+    }
+}
+ 

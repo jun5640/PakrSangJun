@@ -12,7 +12,7 @@ public class PadControler : MonoBehaviour
     const float limitDist = 20f;
     float Speed = 0.01f;
 
-    public UILabel view;
+    //public UILabel view;
 
     public delegate void MoveCallBack(Battle.Animation state);
     public event MoveCallBack callback;
@@ -122,12 +122,12 @@ public class PadControler : MonoBehaviour
     public void OnBtnA()
     {
         Debug.Log("ButtonA");
-        view.text = "ButtonA";
+        //view.text = "ButtonA";
     }
 
     public void OnBtnB()
     {
         Debug.Log("ButtonB");
-        view.text = "ButtonB";
+        //view.text = "ButtonB";
     }
 }

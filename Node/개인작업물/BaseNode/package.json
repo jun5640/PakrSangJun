@@ -1,11 +1,35 @@
 {
-  "name": "basenode",
-  "version": "1.0.0",
-  "description": "",
+  "name": "base_node",
+  "version": "0.1.0",
+  "description": "base_node",
   "main": "server.js",
-  "scripts": {
-    "test": "basenode"
+  "author": " <jun5640@gmail.com>",
+  "dependencies": {
+    "binary-search": "^1.3.6",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "config": "^3.2.2",
+    "connect-memcached": "^1.0.0",
+    "date-utils": "^1.2.21",
+    "domain": "0.0.1",
+    "ejs": "^2.6.2",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.0",
+    "express-session": "^1.16.2",
+    "iab_verifier": "^0.1.2",
+    "iap_verifier": "0.0.12",
+    "locks": "^0.2.2",
+    "morgan": "^1.9.1",
+    "mysql": "^2.17.1",
+    "node-cron": "^2.0.3",
+    "node-rsa": "^1.0.5"
   },
-  "author": "",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
   "license": "ISC"
 }
