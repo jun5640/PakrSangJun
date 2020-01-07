@@ -4,9 +4,9 @@
     "mysql": {
       "host": "127.0.0.1",
       "port": "3306",
-      "username": "",
-      "password": " ",
-      "database": "",
+      "username": "root",
+      "password": "sangjun12",
+      "database": "BaseDB",
       "limit": 10
     },
     "memcached": {

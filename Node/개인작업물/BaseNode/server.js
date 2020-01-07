@@ -24,7 +24,7 @@ domain.on('error', function (err) {
 });
 
 domain.run(function () {
-    console.log('TheMan Server starting...');
+    console.log('BaseDB Server starting...');
 
     dbfunc.connectionCheck.then((data) =>{
         //console.log(data);
@@ -35,7 +35,7 @@ domain.run(function () {
     // 웹서버 설정.
     var app = express();
     app.use(session({
-        secret : 'themanxsecret',
+        secret : 'BaseDBSecret',
         //store: memStore,
         resave : false,
         saveUninitialized : true,

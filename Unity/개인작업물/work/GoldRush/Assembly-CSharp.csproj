@@ -68,6 +68,8 @@
     <Compile Include="Assets\Script\Common\SQLiteManager.cs" />
     <Compile Include="Assets\Script\Common\Table.cs" />
     <Compile Include="Assets\Script\Generated\CurrentBundleVersion.cs" />
+    <Compile Include="Assets\Script\NetWork\PostNetWork.cs" />
+    <Compile Include="Assets\Script\PostTest.cs" />
     <Compile Include="Assets\Script\UI\PadControler.cs" />
     <None Include="Assets\Resources\Datas\2Dres\onscreencontrols\license.txt" />
     <None Include="Assets\Resources\Datas\2Dres\kenney_rpgurbanpack\License.txt" />
@@ -305,6 +307,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/work/PakrSangJun/Unity/개인작업물/work/GoldRush/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:/work/PakrSangJun/Unity/개인작업물/work/GoldRush/Assets/Plugin/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
