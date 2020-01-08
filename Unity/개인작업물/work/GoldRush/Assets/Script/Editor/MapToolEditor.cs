@@ -112,7 +112,7 @@ public class MapToolEditor : EditorWindow
             GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/GameObj.prefab"));
             GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/GameUI.prefab"));
 
-            mMapManager = GameObject.Find("MapManager");
+            //mMapManager = GameObject.Find("MapManager");
         }
 
         if (GUILayout.Button("Load", EditorStyles.miniButton, GUILayout.Width(50)))

@@ -1,40 +1,40 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Networking;
+using System.IO;
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using UnityEngine.Networking;
 
-public class PostNetWork : SingletonBase<PostNetWork>
+
+namespace PostNetWork
 {
-	string url = "http://localhost:15001";
-
-	public void RequetPostFunc()
+	public class PostNetWork : SingletonBase<PostNetWork>
 	{
-		StartCoroutine(RequestPost());
+		string url = "http://localhost:15001";
+
+		public void RequetPostFunc(BaseAction @action)
+		{
+			StartCoroutine(RequestPost(@action));
+		}
+
+		IEnumerator RequestPost(BaseAction @action)
+		{
+			@action.Excute();
+
+			var request = new UnityWebRequest(url, "POST");
+			string bodyJsonString = JsonConvert.SerializeObject(@action);
+
+			byte[] bodyRaw = Encoding.UTF8.GetBytes(bodyJsonString);
+			request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+			request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+			request.SetRequestHeader("Content-Type", "application/json");
+
+			yield return request.SendWebRequest();
+
+			Debug.Log("Status Code: " + request.responseCode);
+		}
+
 	}
-
-	class ActionLogin
-	{
-		public string Name = "hello";
-		public string klass = "ActionLogin";
-	}
-
-	IEnumerator RequestPost()
-	{
-		ActionLogin action = new ActionLogin();
-		
-		var request = new UnityWebRequest(url, "POST");
-		string bodyJsonString = JsonConvert.SerializeObject(action);
-
-		byte[] bodyRaw = Encoding.UTF8.GetBytes(bodyJsonString);
-		request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
-		request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-		request.SetRequestHeader("Content-Type", "application/json");
-
-		yield return request.SendWebRequest();
-
-		Debug.Log("Status Code: " + request.responseCode);
-	}
-
 }

@@ -17,6 +17,7 @@ public:
 	int m_isrcheight;
 	DWORD m_dwrop;
 	int m_idrawdefine;
+	bool m_bisreverse = false;
 
 	BitMapInfo(TCHAR* str,int x, int y, int width, int height, int srcx, int srcy,int srcwidth,int srcheight, DWORD dwrop,int drawdefine)
 	{

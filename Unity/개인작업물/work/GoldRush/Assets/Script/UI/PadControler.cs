@@ -17,6 +17,8 @@ public class PadControler : MonoBehaviour
     public delegate void MoveCallBack(Battle.Animation state);
     public event MoveCallBack callback;
 
+	Vector2 MouseOrigin;
+	Vector2 MouseMove;
 
     //
     // 스크립트 정상 작동 확인용 코드.
@@ -47,23 +49,33 @@ public class PadControler : MonoBehaviour
         Avater = go;
     }
 
-    void OnPress(bool state)
-    {
-        if (state)
-        {
-            Debug.Log("BtnDown");
-            OriginPos = this.transform.localPosition;
-            isOnPress = state;
+	public void PointDown()
+	{
+		Debug.Log("BtnDown");
+		OriginPos = this.transform.localPosition;
+		isOnPress = true;
 
-        }
-        else
-        {
-            Debug.Log("BtnUp");
+		MouseOrigin = Input.mousePosition;
+	}
 
-            this.transform.localPosition = OriginPos;
-            isOnPress = state;
-        }
-    }
+	public void PointUp()
+	{
+		Debug.Log("BtnUp");
+		this.transform.localPosition = OriginPos;
+		isOnPress = false;
+	}
+
+	public void PointDrag()
+	{
+		Debug.Log("PointDrag");
+
+		MouseMove = Input.mousePosition;
+
+		Vector2 delta =  MouseMove - MouseOrigin;
+
+		this.transform.localPosition += (Vector3)delta;
+	}
+
 
     private void Update()
     {
@@ -89,20 +101,20 @@ public class PadControler : MonoBehaviour
 
             if(Dirvec.x < 0)
             {
-                callback(Battle.Animation.Left);
+				if (callback != null) callback(Battle.Animation.Left);
             }
             else if(Dirvec.x > 0)
             {
-                callback(Battle.Animation.Right);
+				if (callback != null) callback(Battle.Animation.Right);
             }
             else
             {
-                callback(Battle.Animation.Idle);
+				if (callback != null) callback(Battle.Animation.Idle);
             }
         }
         else
         {
-            callback(Battle.Animation.Idle);
+            if(callback != null)callback(Battle.Animation.Idle);
         }
     }
 

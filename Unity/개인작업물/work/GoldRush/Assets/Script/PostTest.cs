@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PostTest : MonoBehaviour
 {
-
     void Start()
     {
-		PostNetWork.instance.RequetPostFunc();
+		PostNetWork.PostNetWork.instance.RequetPostFunc(new PostNetWork.ActionLogin());
 	}
 }

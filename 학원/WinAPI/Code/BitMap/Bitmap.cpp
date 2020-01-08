@@ -1,12 +1,19 @@
 #include "resource.h"
 #include<windows.h>
 #include "BitMapManager.h"
+#include "GameManager.h"
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 LPCTSTR lpszClass = TEXT("BitMap");
 
-
+/*#define IDB_BITMAP4                     
+#define IDB_BITMAP5                     
+#define IDB_BITMAP6                     
+#define IDB_BITMAP7                     
+#define IDB_BITMAP8                     
+#define IDB_BITMAP9                     
+#define IDB_BITMAP10     */               
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPervlnstance, LPSTR lpszCmdParam, int nCmdShow)
 {
@@ -52,24 +59,27 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		x = LOWORD(lParam);
 		y = HIWORD(lParam);
 
-		BitMapManager::Instance()->CrashCheck(x, y,hWnd);
-
+		GameManager::Instance()->CrashCheck(x, y,hWnd);
+		InvalidateRect(hWnd, NULL, true);
 		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
 
 
-		//BitMapManager::Instance()->DrawAllBitBlt(hdc, CreateCompatibleDC(hdc), g_hInst);
-		BitMapManager::Instance()->DrawAllStretchBlt(hdc, CreateCompatibleDC(hdc), g_hInst);
+		BitMapManager::Instance()->DrawCard(hdc, CreateCompatibleDC(hdc), g_hInst);
+		GameManager::Instance()->ReverseReset(hWnd);
+		//BitMapManager::Instance()->DrawAllStretchBlt(hdc, CreateCompatibleDC(hdc), g_hInst);
+
+		//BitMapManager::Instance()->DrawBitBlt(TEXT("DRAW2"), hdc, CreateCompatibleDC(hdc), g_hInst);
 
 		EndPaint(hWnd, &ps);
 		return 0;
 	case WM_CREATE:
-		BitMapManager::Instance()->RegisterBitInfo(BitMapInfo(TEXT("DRAW1"), 100, 100, 145, 235, 0, 0, SRCCOPY, IDB_BITMAP1));
-		BitMapManager::Instance()->RegisterBitInfo(BitMapInfo(TEXT("DRAW2"), 300, 100, 145, 235, 0, 0, SRCCOPY, IDB_BITMAP1));
-		BitMapManager::Instance()->RegisterBitInfo(BitMapInfo(TEXT("DRAW3"), 100, 500, 100, 100, 0, 0, SRCCOPY, IDB_BITMAP2));
+		GameManager::Instance()->Init();
+
 		break;
 	case WM_DESTROY:
+		GameManager::Instance()->Release();
 		BitMapManager::Instance()->Release();
 		PostQuitMessage(0);
 		return 0;

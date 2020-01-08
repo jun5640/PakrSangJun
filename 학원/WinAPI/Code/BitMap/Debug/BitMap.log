@@ -1,2 +1,5 @@
 ﻿  Bitmap.cpp
+  GameManager.cpp
+c:\work\pakrsangjun\학원\winapi\code\bitmap\gamemanager.cpp(4): warning C4356: 'SingletonBase<GameManager>::_Instance': 정적 데이터 멤버는 파생 클래스를 통해 초기화할 수 없습니다.
+  코드를 생성하고 있습니다...
   BitMap.vcxproj -> C:\work\PakrSangJun\학원\WinAPI\Code\BitMap\Debug\BitMap.exe
