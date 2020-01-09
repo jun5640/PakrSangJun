@@ -6,6 +6,6 @@ public class PostTest : MonoBehaviour
 {
     void Start()
     {
-		PostNetWork.PostNetWork.instance.RequetPostFunc(new PostNetWork.ActionLogin());
+		PostNetWork.PostNetWork.instance.RequetPostFunc(new PostNetWork.ActionRegister());
 	}
 }

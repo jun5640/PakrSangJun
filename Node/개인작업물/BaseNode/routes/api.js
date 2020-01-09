@@ -6,7 +6,7 @@ const config = require('config');
 
 const error = require('../common/error');
 const type = require('../common/type');
-// var authController = require('../controller/authController');
+var authController = require('../controller/authController');
 // var userController = require('../controller/userController');
 // var storeController = require('../controller/storeController');
 
@@ -38,6 +38,13 @@ var emitter = new events.EventEmitter();
     return true;
 });
 
+emitter.on('ActionRegister', function (body, sess, res) {
+
+    console.log("ActionRegister");
+    authController.Register(body,sess,res);
+    
+    return true;
+});
 // //
 // // 사용자 로그아옷
 // //
@@ -86,8 +93,6 @@ router.post('/', function (req, res) {
    
     if (typeof body.klass !== 'undefined') {
         var now = new Date();
-
-        console.log(body.klass);
 
         if (config.get('log.level') <= type.Log.Level.Debug) {
             console.log(now.toLocaleString() + ', "' + req.connection.remoteAddress + '", ' + JSON.stringify(body));
