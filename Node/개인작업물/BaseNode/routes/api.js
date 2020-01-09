@@ -31,7 +31,7 @@ var emitter = new events.EventEmitter();
 
     console.log("ActionLogin Fun");
 
-    res.json({klass: "hello"});
+    res.json({klass: "ActionLoginResult",data: "hello"});
 
     console.log("ActionLogin Fun");
     

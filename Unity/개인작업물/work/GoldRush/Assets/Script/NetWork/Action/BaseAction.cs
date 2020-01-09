@@ -13,4 +13,12 @@ namespace PostNetWork
 
 		public abstract void Excute();
 	}
+
+	public abstract class BaseActionResult : BaseAction
+	{
+		public override void Excute()
+		{
+
+		}
+	}
 }

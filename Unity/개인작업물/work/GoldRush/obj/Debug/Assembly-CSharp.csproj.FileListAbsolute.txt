@@ -281,3 +281,5 @@ C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\obj\Debug\Assembly-CShar
 C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\obj\Debug\Assembly-CSharp.dll
 C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\obj\Debug\Assembly-CSharp.pdb
 C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\Newtonsoft.Json.dll
+C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.dll
+C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.xml

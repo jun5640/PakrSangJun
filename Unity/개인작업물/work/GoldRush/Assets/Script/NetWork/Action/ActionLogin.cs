@@ -13,4 +13,16 @@ namespace PostNetWork
 
 		}
 	}
+
+	public class ActionLoginResult : BaseActionResult
+	{
+		public string data;
+
+		public override void Excute()
+		{
+			Debug.Log(data);
+			Debug.Log("ActionloginResult");
+		}
+	}
+
 }

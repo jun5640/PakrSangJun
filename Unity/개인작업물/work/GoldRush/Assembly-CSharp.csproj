@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\Generated\CurrentBundleVersion.cs" />
     <Compile Include="Assets\Script\NetWork\Action\ActionLogin.cs" />
     <Compile Include="Assets\Script\NetWork\Action\BaseAction.cs" />
+    <Compile Include="Assets\Script\NetWork\JsonToActionConverter.cs" />
     <Compile Include="Assets\Script\NetWork\PostNetWork.cs" />
     <Compile Include="Assets\Script\PostTest.cs" />
     <Compile Include="Assets\Script\UI\PadControler.cs" />

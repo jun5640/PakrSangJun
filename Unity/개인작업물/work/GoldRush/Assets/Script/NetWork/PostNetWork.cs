@@ -13,6 +13,7 @@ namespace PostNetWork
 	public class PostNetWork : SingletonBase<PostNetWork>
 	{
 		string url = "http://localhost:15001";
+		JsonToActionConverter m_JsonToActionConverter = new JsonToActionConverter();
 
 		public void RequetPostFunc(BaseAction @action)
 		{
@@ -33,7 +34,12 @@ namespace PostNetWork
 
 			yield return request.SendWebRequest();
 
-			Debug.Log("Status Code: " + request.responseCode);
+			string text = request.downloadHandler.text.Trim();
+
+			BaseActionResult result = JsonConvert.DeserializeObject<BaseAction>(text, m_JsonToActionConverter) as BaseActionResult;
+			result.Excute();
+
+			Debug.Log(text);
 		}
 
 	}
