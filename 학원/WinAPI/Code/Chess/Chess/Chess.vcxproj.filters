@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\ChessPiece">
+      <UniqueIdentifier>{cb38c6a3-c650-4067-adfa-729fb7d6daba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\ChessPiece">
+      <UniqueIdentifier>{8901a7f3-6417-4db6-922e-b8dcbc901dc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Singleton">
+      <UniqueIdentifier>{a6b85fb6-99f8-480e-81f5-6b3bccda414f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Singleton">
+      <UniqueIdentifier>{98f08c56-9047-4766-8f13-cedd960c93cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Tile">
+      <UniqueIdentifier>{29665dc9-dfbb-4ec6-9c57-327166dc2735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Tile">
+      <UniqueIdentifier>{4ff304ef-fcd6-4cc1-97ef-e2ecc9e0c029}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessPiece.cpp">
+      <Filter>소스 파일\ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="King.cpp">
+      <Filter>소스 파일\ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="Kinght.cpp">
+      <Filter>소스 파일\ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="Pawn.cpp">
+      <Filter>소스 파일\ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="Queen.cpp">
+      <Filter>소스 파일\ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="Rook.cpp">
+      <Filter>소스 파일\ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="Bishop.cpp">
+      <Filter>소스 파일\ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="BitMapManager.cpp">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="SingletonBase.cpp">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="TileInfo.cpp">
+      <Filter>소스 파일\Tile</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChessPiece.h">
+      <Filter>헤더 파일\ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonFeature.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Queen.h">
+      <Filter>헤더 파일\ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="Rook.h">
+      <Filter>헤더 파일\ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="Pawn.h">
+      <Filter>헤더 파일\ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="Kinght.h">
+      <Filter>헤더 파일\ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="King.h">
+      <Filter>헤더 파일\ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="Bishop.h">
+      <Filter>헤더 파일\ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="BitMapManager.h">
+      <Filter>헤더 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>헤더 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonBase.h">
+      <Filter>헤더 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="TileInfo.h">
+      <Filter>헤더 파일\Tile</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Chess.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
