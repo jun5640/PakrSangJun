@@ -47,6 +47,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 	switch (iMessage)
 	{
+	case WM_RBUTTONDOWN:
+		GameManager::Instance()->InitSelect();
+		return 0;
 	case WM_LBUTTONDOWN:
 		x = LOWORD(lParam);
 		y = HIWORD(lParam);

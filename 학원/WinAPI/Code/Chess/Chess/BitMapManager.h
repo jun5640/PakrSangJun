@@ -23,6 +23,12 @@ public:
 
 	BitMapManager() {};
 	~BitMapManager() {};
+	void TileSelectCheck(int x, int y, int TeamType);
+	
+	void InitSelect()
+	{
+		FirstClick = nullptr;
+	}
 
 	void DrawAllTile(HDC hdc, HDC MemDC, HINSTANCE hInst)
 	{
@@ -84,39 +90,108 @@ public:
 		return _Instance;
 	}
 
-	void TileSelectCheck(int x, int y)
-	{
-		POINT pt;
-		pt.x = x;
-		pt.y = y;
+	
 
+
+
+	bool WallCheck(int PieceType,int deltaX,int deltaY)
+	{
+		if (PieceType == BISHOP)
+		{
+			return BISHOPWallCheck(deltaX, deltaY);
+		}
+		else if (PieceType == QUEEN)
+		{
+			if (deltaX == 0 || deltaY == 0)
+			{
+				return ROOKWallCheck(deltaX, deltaY);
+			}
+			else
+			{
+				return BISHOPWallCheck(deltaX, deltaY);
+			}
+		}
+		else if (PieceType == ROOK)
+		{
+			return ROOKWallCheck(deltaX, deltaY);
+		}
+
+		return false;
+	}
+
+	bool BISHOPWallCheck(int input_deltaX, int input_deltaY)
+	{
+		vector<TileInfo>::iterator iter = m_vTileInfo.begin();
+
+		while (true)
+		{
+			if (input_deltaX < 0) input_deltaX++;
+			else input_deltaX--;
+			if (input_deltaY < 0) input_deltaY++;
+			else input_deltaY--;
+
+			if (input_deltaX == 0) break;
+
+			for (iter = m_vTileInfo.begin(); iter != m_vTileInfo.end(); iter++)
+			{
+				int deltaX = (FirstClick->m_rt.left - iter->m_rt.left) / FirstClick->width;
+				int deltaY = (FirstClick->m_rt.top - iter->m_rt.top) / FirstClick->height;
+
+				if (deltaX == input_deltaX && deltaY == input_deltaY)
+				{
+					if (iter->m_piece != nullptr)return true;
+				}
+			}
+
+			
+		}
+
+		return false;
+	}
+
+	bool ROOKWallCheck(int input_deltaX, int input_deltaY)
+	{
+		vector<TileInfo>::iterator iter = m_vTileInfo.begin();
+
+		while (true)
+		{
+			if (input_deltaX == 0 && input_deltaY < 0) input_deltaY++;
+			else if (input_deltaX == 0 && input_deltaY > 0)input_deltaY--;
+		
+			if (input_deltaY == 0 && input_deltaX < 0) input_deltaX++;
+			else if (input_deltaY == 0 && input_deltaX > 0)input_deltaX--;
+
+			if (input_deltaX == 0 && input_deltaY == 0) break;
+
+			for (iter = m_vTileInfo.begin(); iter != m_vTileInfo.end(); iter++)
+			{
+				int deltaX = (FirstClick->m_rt.left - iter->m_rt.left) / FirstClick->width;
+				int deltaY = (FirstClick->m_rt.top - iter->m_rt.top) / FirstClick->height;
+
+				if (deltaX == input_deltaX && deltaY == input_deltaY)
+				{
+					if (iter->m_piece != nullptr)return true;
+				}
+			}
+
+
+		}
+
+		return false;
+	}
+
+	void DeleteData()
+	{
 		vector<TileInfo>::iterator iter = m_vTileInfo.begin();
 
 		for (iter; iter != m_vTileInfo.end(); iter++)
 		{
-			if (PtInRect(&(iter->m_rt), pt))
-			{
-				if (iter->m_piece != nullptr)
-				{
-					if (FirstClick == nullptr)
-					{
-						FirstClick = &(*iter);
-						break;
-					}
-					else
-					{
-						//
-						// 같은 팀이 아닐때 혹은 빈곳 일때의 조건문 해당 이동쪽에 상대 말이 있을경우 할댕해제도 해줘야 한다.
-						//
-						if (iter->m_piece != FirstClick->m_piece)
-						{
-							iter->m_piece = FirstClick->m_piece;
-							FirstClick->m_piece = nullptr;
-						}
-					}
-				}
-			}
+			delete iter->m_piece;
+			iter->m_piece = nullptr;
+
 		}
+
+		m_vTileInfo.clear();	
 	}
 };
 

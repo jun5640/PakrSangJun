@@ -13,6 +13,10 @@
 #define MAX_CARD 14
 #define ENDGAME 7
 
+
+#define BLACKTEAM 0
+#define WHITETEAM 1
+
 //
 // ∏ ≈©±‚ 8x8
 //
@@ -22,6 +26,8 @@ class GameManager : public SingletonBase<GameManager>
 private:
 
 	TCHAR* tilecolorPath;
+	int GameTurn = WHITETEAM;
+
 public:
 
 	GameManager()
@@ -72,7 +78,7 @@ public:
 
 				Info.m_rt.left = j * bx;
 				Info.m_rt.top = i * by;
-				Info.m_rt.right = i * by + bx;
+				Info.m_rt.right = j * bx + bx;
 				Info.m_rt.bottom = i * by + by;
 				Info.width = bx;
 				Info.height = by;
@@ -141,8 +147,26 @@ public:
 
 	void CrashCheck(int x, int y, HWND hWnd)
 	{
-		BitMapManager::Instance()->TileSelectCheck(x, y);
+		BitMapManager::Instance()->TileSelectCheck(x, y, GameTurn);
 	}
 
+	void InitSelect()
+	{
+		BitMapManager::Instance()->InitSelect();
+	}
+
+	void ChangeTurn()
+	{
+		if (GameTurn == WHITETEAM)
+		{
+			GameTurn = BLACKTEAM;
+		}
+		else
+		{
+			GameTurn = WHITETEAM;
+		}
+	}
+
+	
 };
 

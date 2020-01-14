@@ -20,6 +20,21 @@ public:
 		}
 	}
 
-	void Process() {};
+	bool Process(ChessPiece* other, int deltaX, int deltaY) 
+	{
+		int otherTeam = -1;
+		bool result = false;
+
+
+
+		if (other != nullptr)
+		{
+			otherTeam = other->GetTeamType();
+		}
+
+		if (otherTeam != TeamType && (deltaX == 0 || deltaY == 0)) result = true;
+
+		return result;
+	}
 };
 
