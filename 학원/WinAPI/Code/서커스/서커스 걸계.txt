@@ -1,0 +1,28 @@
+서커스게임 필요 클래스 및 기능
+
+DrawManager
+-DoubleBuffer(playerDraw,ObjectDraw,BackGroundDraw,View)
+백그라운드에 미터기 포함
+
+
+
+DrawObject(오브젝트 최상위 클래스)
+-Type 타입에 따라 형변환후에 드로우 때림
+-Draw
+-AnimatinKeyFrame
+-AnimatinKeyEnd
+
+DrawObject 하위 클래스-----------------------------------------------------
+Player 
+
+-Move
+-CrashCheck(playerRect,ObjectRect)
+-Jump
+
+Object(장해물)
+
+
+-------------------
+GameManager
+-Mitter관리
+-Draw() 미터기 및 오브젝트들을 그리는 명령어를 실행 한다.

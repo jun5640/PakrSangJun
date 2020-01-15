@@ -38,6 +38,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	return (int)Message.wParam;
 }
 
+int xpos = 650;
+int ypos = 50;
+int Dir = 0;
+int AnimationKeyFrame = 0;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
@@ -47,36 +51,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	HBITMAP hImage, hOldBitmap;
 	int bx, by;
 	BITMAP bit;
-	static int xpos = 650;
-	static int ypos = 50;
-	static int Dir = 0;
-	static int AnimationKeyFrame = 0;
+	
 
 	switch (iMessage)
 	{
 	case WM_KEYDOWN:
 
-		switch (wParam)
-		{
-		case VK_LEFT:
-			Dir = 2;
-			AnimationKeyFrame = 0;
-			break;
-		case VK_RIGHT:
-			Dir = 3;
-			AnimationKeyFrame = 0;
-			break;
-		case VK_UP:
-			Dir = 1;
-			AnimationKeyFrame = 0;
-			break;
-		case VK_DOWN:
-			Dir = 0;
-			AnimationKeyFrame = 0;
-			break;
-		}
-
-		InvalidateRect(hWnd, NULL, TRUE);
 
 		return 0;
 	case WM_PAINT:
@@ -102,25 +82,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		////투명처리와 부분그리기 
 		////이번에는 왼쪽을 보고 있고 한발을 내딛은 캐릭터를 그린다
+
 		TransparentBlt(hdc, xpos, ypos, bx / 4, by / 4,
 			hMemDC, (bx / 4) * AnimationKeyFrame, (by / 4) * Dir, bx / 4, by / 4, RGB(255, 0, 255));
 		AnimationKeyFrame++;
-		if (Dir == 0)
-		{
-			ypos += 5;
-		}
-		else if (Dir == 1)
-		{
-			ypos -=5;
-		}
-		else if (Dir == 2)
-		{
-			xpos -=5;
-		}
-		else
-		{
-			xpos +=5;
-		}
+
 		if (AnimationKeyFrame >= 4)
 		{
 			AnimationKeyFrame = 0;
@@ -139,7 +105,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		KillTimer(hWnd, 1);
 		return 0;
 	case WM_CREATE:
-		SetTimer(hWnd, 1, 100, AnimationTimer);
+		SetTimer(hWnd, 1, 16, AnimationTimer);
 		return 0;
 	}
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
@@ -147,5 +113,26 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 void CALLBACK AnimationTimer(HWND hWnd, UINT uMsg, UINT idEvent, DWORD dwTime)
 {
+	if (GetKeyState(VK_LEFT) & 0x8000)
+	{
+		Dir = 2;
+		xpos -= 10;
+	}
+	if (GetKeyState(VK_RIGHT) & 0x8000)
+	{
+		Dir = 3;
+		xpos += 10;
+	}
+	if (GetKeyState(VK_UP) & 0x8000)
+	{
+		Dir = 1;
+		ypos -= 10;
+	}
+	if (GetKeyState(VK_DOWN) & 0x8000)
+	{
+		Dir = 0;
+		ypos += 10;
+	}
+
 	InvalidateRect(hWnd, NULL, TRUE);
 }

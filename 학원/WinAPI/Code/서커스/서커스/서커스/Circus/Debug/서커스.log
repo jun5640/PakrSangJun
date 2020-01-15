@@ -1,0 +1,10 @@
+﻿  GameManager.cpp
+c:\work\pakrsangjun\학원\winapi\code\서커스\서커스\서커스\gamemanager.cpp(3): warning C4356: 'SingletonBase<GameManager>::_Instance': 정적 데이터 멤버는 파생 클래스를 통해 초기화할 수 없습니다.
+  Player.cpp
+  main.cpp
+c:\work\pakrsangjun\학원\winapi\code\서커스\서커스\서커스\main.cpp(62): warning C4101: 'hdc' :참조되지 않은 지역 변수입니다.
+c:\work\pakrsangjun\학원\winapi\code\서커스\서커스\서커스\main.cpp(63): warning C4101: 'ps' :참조되지 않은 지역 변수입니다.
+c:\work\pakrsangjun\학원\winapi\code\서커스\서커스\서커스\main.cpp(65): warning C4101: 'y' :참조되지 않은 지역 변수입니다.
+c:\work\pakrsangjun\학원\winapi\code\서커스\서커스\서커스\main.cpp(64): warning C4101: 'x' :참조되지 않은 지역 변수입니다.
+  코드를 생성하고 있습니다...
+  서커스.vcxproj -> C:\work\PakrSangJun\학원\WinAPI\Code\서커스\서커스\Debug\서커스.exe

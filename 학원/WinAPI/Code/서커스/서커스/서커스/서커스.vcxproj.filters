@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Singleton">
+      <UniqueIdentifier>{69a099fb-6133-4992-b7c0-b1dcbe932c12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Singleton">
+      <UniqueIdentifier>{76189175-3454-4c33-a97c-97e7aa2cd9a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object">
+      <UniqueIdentifier>{d1fc54b3-1483-4a0e-af41-0d4632e78358}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Object">
+      <UniqueIdentifier>{a323fe7f-873b-4e64-b31a-b77b2e2f99eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ObjectPool">
+      <UniqueIdentifier>{380c4691-486e-4ad1-8faf-8b191ae7c4f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\ObjectPool">
+      <UniqueIdentifier>{9b8c0dac-9d41-4bc8-9ec4-145476219017}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SingletonBase.cpp">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawManager.cpp">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomObject.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>소스 파일\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SingletonBase.h">
+      <Filter>헤더 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawManager.h">
+      <Filter>헤더 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>헤더 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomObject.h">
+      <Filter>헤더 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>헤더 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>헤더 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>헤더 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>헤더 파일\ObjectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonFeature.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
