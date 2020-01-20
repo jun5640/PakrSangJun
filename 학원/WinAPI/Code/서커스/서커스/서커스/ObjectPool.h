@@ -18,14 +18,19 @@ public:
 	//ObjectPool(const ObjectPool&) {};
 	~ObjectPool() 
 	{
-		for (auto it = m_Objects.begin(); it != m_Objects.end(); it++)
-		{
-			delete it->first;
-		}
-		
-		m_Objects.clear();
+		PoolClear();
 	};
 
+	void PoolClear()
+	{
+		for (auto it = m_Objects.begin(); it != m_Objects.end(); it++)
+		{
+
+			delete it->first;
+		}
+
+		m_Objects.clear();
+	}
 
 	void SetPool(int objectCount)
 	{

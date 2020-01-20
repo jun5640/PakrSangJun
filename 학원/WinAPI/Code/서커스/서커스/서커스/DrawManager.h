@@ -3,6 +3,7 @@
 
 #include "CommonFeature.h"
 #include "CustomObject.h"
+#include "Background.h"
 #include "SingletonBase.h"
 
 
@@ -64,6 +65,12 @@ public:
 				TransparentBlt(g_MemDC[0], (*iter)->GetXpos(), (*iter)->GetYpos(), (*iter)->GetWidth(), (*iter)->GetHeight(),
 					g_MemDC[1], (*iter)->GetSCRXpos(), (*iter)->GetSCRYpos(), (*iter)->GetSCRWidth(), (*iter)->GetSCRHeight(), RGB(255, 0, 255));
 				//TransparentBlt(g_MemDC[0], 생성위치 x, 생성 위치y, 생성 크기, 생성 높이, g_MemDC[1], 0, 0, 원본이미지 크기 어디까지 짜를건지, 원본이미지 높이 어디까지 짜를건지, RGB(255, 0, 255));
+
+				Background* obj = (Background*)(*iter);
+				if (obj->GetBackGroundType() == MITER)
+				{
+					TextOut(g_MemDC[0], obj->GetXpos() + 10, obj->GetYpos() + 5, obj->GetMiter(), 4);
+				}
 
 				SelectObject(g_MemDC[1], g_hOld[1]);
 				DeleteObject(g_hBitMap[1]);

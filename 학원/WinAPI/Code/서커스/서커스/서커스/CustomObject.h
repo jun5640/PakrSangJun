@@ -29,6 +29,13 @@ protected:
 
 	double FrameTime = 0;
 	double PreTime = 0;
+
+	bool m_IsPlayAnimaion = true;
+	bool m_IsScroll = false;
+
+	int m_ScrollDir = 0;
+
+	int m_iDeltaX = 0;
 public:
 
 	int GetType() { return m_iType; }
@@ -57,7 +64,7 @@ public:
 	}
 	TCHAR* GetAnimationPath()
 	{
-		if (m_iAnimationEndFrame == -1) return m_tDrawPath;
+		if (m_iAnimationEndFrame == -1 || !m_IsPlayAnimaion) return m_tDrawPath;
 
 		TCHAR* result = m_vAnimationPath[m_iAnimationKeyFrame];
 
@@ -67,5 +74,25 @@ public:
 	}
 
 	virtual void Process() {};
+
+	void SetAnimationPlay(bool value)
+	{
+		m_IsPlayAnimaion = value;
+	}
+
+	void Scroll(int deltaX)
+	{
+		if (m_IsScroll)
+		{
+			m_iXpos += deltaX;			
+		}
+
+		m_iDeltaX += deltaX;
+	};
+
+	void SetScrollDir(int deltaX)
+	{
+		m_ScrollDir = deltaX;
+	};
 };
 

@@ -31,7 +31,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPervlnstance, LPSTR lpszCmd
 	ShowWindow(hWnd, nCmdShow);
 
 
-	GameManager::Instance()->Init();
 	DrawManager::Instance()->Init(GetDC(hWnd));
 
 	while (true) 
@@ -63,18 +62,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	PAINTSTRUCT ps;
 	int x;
 	int y;
+	
+	static int Dir = -1;
+
+	//
+	// KEYDOWN KEYUP 쓰지 않아도 됨.
+	//
 
 	switch (iMessage)
 	{
 		case WM_KEYDOWN:
 		{
-			if (GetKeyState(VK_SPACE) & 0x8000)
-			{
-				GameManager::Instance()->Jump();
-			}
+			
 		}
 		return 0;
 
+		return 0;
 		case WM_CREATE:
 		{
 			
