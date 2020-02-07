@@ -30,7 +30,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -91,7 +91,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -143,7 +143,40 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Astar.cpp" />
+    <ClCompile Include="Astart2.cpp" />
+    <ClCompile Include="BaseAI.cpp" />
+    <ClCompile Include="BasePlayer.cpp" />
+    <ClCompile Include="BaseTile.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="DrawManager.cpp" />
+    <ClCompile Include="EnemyPlayer.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="MapToolManager.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SingletonBase.cpp" />
     <ClCompile Include="WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Astar.h" />
+    <ClInclude Include="Astart2.h" />
+    <ClInclude Include="BaseAI.h" />
+    <ClInclude Include="BasePlayer.h" />
+    <ClInclude Include="BaseTile.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="CommonFeature.h" />
+    <ClInclude Include="DrawManager.h" />
+    <ClInclude Include="EnemyPlayer.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="MapToolManager.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SingletonBase.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BattleCity.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
