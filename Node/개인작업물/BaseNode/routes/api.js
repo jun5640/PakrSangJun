@@ -42,35 +42,6 @@ emitter.on('ActionRegister', function (body, sess, res) {
     
     return true;
 });
-// //
-// // 사용자 로그아옷
-// //
-// emitter.on('ActionLogout', function (body, sess, res) {
-//     authController.Logout(sess, res);
-//     return true;
-// });
-
-// //
-// // 사용자 등록
-// //
-// emitter.on('ActionRegister', (body, sess, res) => {
-//     authController.Register(body, sess, res);
-//     return true;
-// });
-
-// //
-// // 캐릭터 변경 요청
-// //
-// emitter.on('ActionCharSelect', (body, sess, res) => {
-//     if (!authController.IsAuth(sess) ) {
-//         return res.json({ klass: 'ActionCharSelectResult', result: error.Fail });
-//     }
-//     userController.CharSelect(body, sess, res);
-//     return true;
-// });
-
-
-
 
 //
 //  시스템 사용자 검색
