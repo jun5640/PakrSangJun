@@ -38,6 +38,7 @@ namespace PostNetWork
 
 			BaseActionResult result = JsonConvert.DeserializeObject<BaseAction>(text, m_JsonToActionConverter) as BaseActionResult;
 			result.Excute();
+			if (result.action != null) result.action();
 
 			Debug.Log(text);
 		}

@@ -16,6 +16,8 @@ namespace PostNetWork
 
 	public abstract class BaseActionResult : BaseAction
 	{
+		public System.Action @action = null;
+
 		public override void Excute()
 		{
 

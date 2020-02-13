@@ -23,6 +23,15 @@ namespace PostNetWork
 		{
 			Debug.Log(data);
 			Debug.Log("ActionRegisterResult");
+
+			if (string.IsNullOrEmpty(data))
+			{
+				Login.instance.Text_Result.text = "Failed";
+			}
+			else
+			{
+				Login.instance.Text_Result.text = data;
+			}
 		}
 	}
 

@@ -29,11 +29,8 @@ var emitter = new events.EventEmitter();
  //
  emitter.on('ActionLogin', function (body, sess, res) {
 
-    console.log("ActionLogin Fun");
-
-    res.json({klass: "ActionLoginResult",data: "hello"});
-
-    console.log("ActionLogin Fun");
+    console.log("ActionLogin");
+    authController.Login(body,sess,res);
     
     return true;
 });
