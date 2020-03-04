@@ -5,10 +5,10 @@ using UnityEngine;
 namespace Map
 {
 
-    public class Map
-    {
-        public Stage[] stages;  // 구성 스테이지
-    }
+    //public class Map
+    //{
+    //    public Stage[] stages;  // 구성 스테이지
+    //}
 
     public class Stage
     {

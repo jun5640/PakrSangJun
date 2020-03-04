@@ -7,15 +7,14 @@ const config = require('config');
 const error = require('../common/error');
 const type = require('../common/type');
 var authController = require('../controller/authController');
-// var userController = require('../controller/userController');
-// var storeController = require('../controller/storeController');
+var userController = require('../controller/userController');
 
 var router = express.Router();
 var emitter = new events.EventEmitter();
 
-// //
-// // 정의 되지않는 메시지 및 오류 처리
-// //
+//
+// 정의 되지않는 메시지 및 오류 처리
+//
  emitter.on('error', function (action, res, errorCode, msg = null) {
      if (msg !== null) {
          return res.json({ klass: action, result: errorCode, msg: msg });
@@ -35,12 +34,27 @@ var emitter = new events.EventEmitter();
     return true;
 });
 
+//
+// 사용자 등록
+//
 emitter.on('ActionRegister', function (body, sess, res) {
 
     console.log("ActionRegister");
     authController.Register(body,sess,res);
     
     return true;
+});
+
+//
+// 맵 클리어 확인 
+//
+
+emitter.on('ActionMapClear', function (body, sess, res) {
+
+    console.log("ActionMapClear");
+    userController.MapClear(body,sess,res);
+    return true;
+
 });
 
 //

@@ -6,11 +6,11 @@ namespace Battle
 {
     public enum Animation
     {
-        Idle = 0,
-        //Down,
-        Left,
-        Right,
-        //Up,
+		IsIdle = 0,
+		IsMoveUp,
+		IsMoveDown,
+		IsMoveLeft,
+		IsMoveRight,
     }
 }
 

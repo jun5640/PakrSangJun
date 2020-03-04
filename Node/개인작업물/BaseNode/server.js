@@ -17,7 +17,6 @@ var routes = require('./routes/routes.js');
 var dbfunc = require('./lib/dbFunction');
 
 
-console.log("a");
 
 domain.on('error', function (err) {
     console.error('error : ' + err);

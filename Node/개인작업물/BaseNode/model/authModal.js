@@ -37,8 +37,8 @@ function Login(userId, userPassWord, sess) {
     return new Promise((resolve,reject) => {
 
         let sql = `SET @oResult=0;`;
-        sql += `CALL sp_login_user (?,?,@oResult);`;
-        sql += `select @oResult;`;  
+        sql += `CALL sp_login_user (?,?,@oResult,@oUserData);`;
+        sql += `select @oResult,@oUserData;`;  
         db.query(sql, [userId, userPassWord], function (error, rows, fields) {
             if(!!error) {
                 dbFunc.connectionRelease;

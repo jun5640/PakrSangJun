@@ -30,14 +30,7 @@ public class PadControler : MonoBehaviour
 
     public void Start()
     {
-        //SQLiteManager.instance.Connect(SQLiteManager.instance.GetAssetPath("Table/Table.db"));
 
-        //Table.CREATURE tbCreature = SQLiteManager.instance.GetValue<Table.CREATURE>(1);
-
-        //Debug.Log(tbCreature.Hp);
-        //Debug.Log(tbCreature.Ani[0]);
-        //Debug.Log(tbCreature.Ani[1]);
-        //Debug.Log(tbCreature.Ani[2]);
         if (charmanager != null)
         {
             callback += charmanager.StateUpdate;
@@ -99,22 +92,31 @@ public class PadControler : MonoBehaviour
 
             Avater.transform.localPosition += (Vector3)Dirvec * Speed;
 
-            if(Dirvec.x < 0)
+
+			if(Dirvec.y < 0)
+			{
+				if (callback != null) callback(Battle.Animation.IsMoveDown);
+			}
+			else if (Dirvec.y > 0)
+			{
+				if (callback != null) callback(Battle.Animation.IsMoveUp);
+			}
+			else if(Dirvec.x < 0)
             {
-				if (callback != null) callback(Battle.Animation.Left);
+				if (callback != null) callback(Battle.Animation.IsMoveLeft);
             }
             else if(Dirvec.x > 0)
             {
-				if (callback != null) callback(Battle.Animation.Right);
+				if (callback != null) callback(Battle.Animation.IsMoveRight);
             }
             else
             {
-				if (callback != null) callback(Battle.Animation.Idle);
+				if (callback != null) callback(Battle.Animation.IsIdle);
             }
         }
         else
         {
-            if(callback != null)callback(Battle.Animation.Idle);
+            if(callback != null)callback(Battle.Animation.IsIdle);
         }
     }
 

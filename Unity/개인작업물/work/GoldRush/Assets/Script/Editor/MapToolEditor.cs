@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-//using Newtonsoft.Json;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.IO;
 
 
@@ -27,7 +28,7 @@ public class MapToolEditor : EditorWindow
         // 각 방마다 저장된 몹들 정보.
         //
 
-        public Map.Map map;
+       // public Map.Map map;
 
         public EditorStage()
         {
@@ -50,18 +51,29 @@ public class MapToolEditor : EditorWindow
     static string defaultResourcePath = "Assets/Datas/";
     static string defaultOwnerPoints = defaultResourcePath + "Map/default.json";
 
-    Map.Map m_Map = null;
+	//Map.Map m_Map = null;
+	string TileId = "";
+	Map.MapTile mMapTile = null;
 
     Vector2 m_Scroll1 = Vector2.zero;
     Vector2 m_Scroll2 = Vector2.zero;
     Vector2 m_Scroll3 = Vector2.zero;
 
     GameObject mMapManager = null;
+	MapToolScript mMapToolScript = null;
     RectTransform mEnvInstance = null;
 
     Map.Tile m_SelectTile = null;
 
-    void OnEnable()
+	Texture[] TileTexture;
+
+	bool EditorModeOn = false;
+	bool MultiSelectOn = false;
+
+	GameObject selectTile;
+
+
+	void OnEnable()
     {
         if (ListBox == null)
         {
@@ -89,13 +101,74 @@ public class MapToolEditor : EditorWindow
         GUILayout.BeginVertical();
         TopMenu();
         EditorGUILayout.Separator();
-        GUILayout.BeginHorizontal();
-        //
-        //
-        //
-        GUILayout.EndHorizontal();
-        GUILayout.EndVertical();
-    }
+        
+		//
+		//
+		//
+		ViewTileInfo();
+		m_Scroll1 = EditorGUILayout.BeginScrollView(m_Scroll1, GUILayout.Width(900), GUILayout.Height(400));
+		GUILayout.BeginHorizontal();
+		DrawImag();
+		GUILayout.EndHorizontal();
+		EditorGUILayout.EndScrollView();
+
+		GUILayout.EndVertical();
+	}
+
+
+	void DrawImag()
+	{
+		if(mMapToolScript != null)
+		{
+			for (int i = 0; i < mMapToolScript.TileInfos.Length; i++)
+			{
+				if(TileTexture[i] == null)
+				{ 
+					TileTexture[i] = Resources.Load<Texture>(mMapToolScript.TileInfos[i].path);
+				}
+				GUILayout.Box(TileTexture[i]);
+				if(GUILayout.Button((mMapToolScript.TileInfos[i].Id - 1).ToString(), EditorStyles.miniButton, GUILayout.Width(30)))
+				{
+					TileId = (mMapToolScript.TileInfos[i].Id - 1).ToString();
+				}
+				if((i + 1) % 15 == 0)
+				{
+					GUILayout.EndHorizontal();
+					GUILayout.BeginHorizontal();
+				}
+			}	
+		}	
+	}
+
+
+	void ViewTileInfo()
+	{
+		GUILayout.BeginVertical();
+
+		EditorGUILayout.LabelField("EditorModeOn:", EditorModeOn.ToString());
+		EditorGUILayout.LabelField("MultiSelectModeOn:", MultiSelectOn.ToString());
+
+		GUILayout.EndVertical();
+
+		GUILayout.BeginVertical();
+
+		EditorGUILayout.LabelField("Id:", TileId);
+
+		GUILayout.EndVertical();
+
+		if (!string.IsNullOrEmpty(TileId)) mMapTile = mMapToolScript.GetTileInfo(int.Parse(TileId));
+		else mMapTile = null;
+
+		if (mMapTile != null)
+		{
+			GUILayout.BeginVertical();
+			EditorGUILayout.LabelField("img_path:", mMapTile.path);
+			GUILayout.EndVertical();
+			GUILayout.BeginVertical();
+			EditorGUILayout.LabelField("IsCrash", mMapTile.IsTrigger.ToString());
+			GUILayout.EndVertical();
+		}
+	}
 
     void TopMenu()
     {
@@ -109,11 +182,16 @@ public class MapToolEditor : EditorWindow
 
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
-            GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/GameObj.prefab"));
+            GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/Character.prefab"));
             GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/GameUI.prefab"));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/MainCamera.prefab"));
+			mMapManager = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/Tile_Grid.prefab"));
+			mMapToolScript = mMapManager.AddComponent<MapToolScript>();
+			mMapToolScript.LoadTileinfo();
+			TileTexture = new Texture[mMapToolScript.TileInfos.Length];
 
-            //mMapManager = GameObject.Find("MapManager");
-        }
+			//mMapManager = GameObject.Find("MapManager");
+		}
 
         if (GUILayout.Button("Load", EditorStyles.miniButton, GUILayout.Width(50)))
         {
@@ -126,32 +204,103 @@ public class MapToolEditor : EditorWindow
                 defaultName = Path.GetFileName(path);
 
                 EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-                GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Script/Battle/Editor/BattleUI.prefab"));
-                GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Script/Battle/Editor/BattleEditor.prefab"));
 
-               
-            }
+				GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/Character.prefab"));
+				GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/GameUI.prefab"));
+				GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/MainCamera.prefab"));
+				mMapManager = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Datas/Prefab/MapTool/Tile_Grid.prefab"));
+				mMapToolScript = mMapManager.AddComponent<MapToolScript>();
+				mMapToolScript.LoadTileinfo();
+				TileTexture = new Texture[mMapToolScript.TileInfos.Length];
+				Load(path);
+			}
         }
 
         if (GUILayout.Button("Save", EditorStyles.miniButton, GUILayout.Width(50)))
         {
-            string path = EditorUtility.SaveFilePanel("Save", defaultDirectory, defaultName, "json");
-            if (!string.IsNullOrEmpty(path))
-            {
-                dataPath = path;
-                defaultDirectory = Path.GetDirectoryName(path);
-            }
-        }
+			string path = EditorUtility.SaveFilePanel("Save", defaultDirectory, defaultName, "json");
+			//PrefabUtility.SaveAsPrefabAsset(mMapManager, path);
 
-        GUILayout.Label(dataPath, EditorStyles.miniLabel);
+			if (!string.IsNullOrEmpty(path))
+			{
+				Save(path);
+			}
+		}
+
+		if (GUILayout.Button("EditorModeSwitch", EditorStyles.miniButton, GUILayout.Width(150)))
+		{
+			EditorModeOn = !EditorModeOn;
+		}
+
+
+
+		if (GUILayout.Button("MultiselectModeSwitch", EditorStyles.miniButton, GUILayout.Width(150)))
+		{
+			MultiSelectOn = !MultiSelectOn;
+		}
+
+		GUILayout.Label(dataPath, EditorStyles.miniLabel);
         GUILayout.EndHorizontal();
     }
 
+	private void Update()
+	{
+		if (EditorModeOn)
+		{
+			if (MultiSelectOn)
+			{
+				GameObject[] go = Selection.gameObjects;
 
+				for (int i = 0; i < go.Length; i++)
+				{
+					MapTileCell cell = go[i].GetComponentInChildren<MapTileCell>();
+					if (cell != null && mMapTile != null) cell.CellUpdate(mMapTile);
+				}
+			}
+			else
+			{
+				selectTile = Selection.activeGameObject;
 
-    void StageList()
-    {
-        //if(m_Map == null || m_St)
-    }
+				if (selectTile != null)
+				{
+					MapTileCell cell = selectTile.GetComponentInChildren<MapTileCell>();
+					if (cell != null && mMapTile != null) cell.CellUpdate(mMapTile);
+				}
+			}
+		}
+	}
+
+	void Save(string path)
+	{
+		try
+		{
+			int[] TileIndex = new int[mMapToolScript.Maps.Count];
+			for(int i = 0; i < mMapToolScript.Maps.Count; i++)
+			{
+				TileIndex[i] = mMapToolScript.Maps[i].Id;
+			}
+		
+
+			File.WriteAllText(path, JsonConvert.SerializeObject(TileIndex));
+		}
+		catch (System.Exception e)
+		{
+			Debug.Log(e);
+		}
+	}
+
+	void Load(string path)
+	{
+		int[] index;
+		try
+		{
+			index = JsonConvert.DeserializeObject<int[]>(File.ReadAllText(path));
+			mMapToolScript.TileLoad(index);
+		}
+		catch (System.Exception e)
+		{
+			Debug.Log(e);
+		}
+	}
 }
 

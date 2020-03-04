@@ -6,8 +6,8 @@ using System;
 public class CharManager : MonoBehaviour
 {
     public Animator ani;
-    Battle.Animation state = Battle.Animation.Idle;
-    Battle.Animation prevstate = Battle.Animation.Idle;
+    Battle.Animation state = Battle.Animation.IsIdle;
+    Battle.Animation prevstate = Battle.Animation.IsIdle;
 
 
     private void Update()

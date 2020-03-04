@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PostNetWork
 {
@@ -18,6 +19,7 @@ namespace PostNetWork
 	public class ActionLoginResult : BaseActionResult
 	{
 		public string data;
+		public string result;
 
 		public override void Excute()
 		{
@@ -26,11 +28,13 @@ namespace PostNetWork
 
 			if (string.IsNullOrEmpty(data))
 			{
-				Login.instance.Text_Result.text = "Failed";
+				Login.instance.Text_Result.text = "Failed";	
 			}
 			else
 			{
-				Login.instance.Text_Result.text = data;
+				DataManager.instance.SetUserData(data);
+				Login.instance.Text_Result.text = result;
+				SceneManager.LoadScene("Menu");
 			}
 		}
 	}
