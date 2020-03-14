@@ -1,0 +1,34 @@
+﻿{/* <div class="container" id="event" style="display: none;">
+	<div class='row'>
+		<!-- 관리 메뉴 -->
+		<nav class='navbar navbar-default'>
+			<div class='container'>
+				<div class='navbar-header'>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#event-bar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class='collapse navbar-collapse' id='event-bar'>
+					<ul class="nav navbar-nav">
+						<li class='event-menu nav-item' func='event-create' > <a class='nav-link' href='#'>추가</a></li>
+					</ul>
+				</div>
+			</div> <!-- container -->
+		</nav> <!-- 관리 메뉴 -->
+
+		<div class = "requst-wait" id="event-wait">
+			<span><i class="fa fa-spinner fa-spin" ></i></span>
+		</div>
+
+		<!-- 정보 출력 -->
+		<div style='display:none;' id='event-list'>
+			<div class='scrollable'>
+				<!-- 이밴트 정보 출력 -->
+				<div id='event-display'></div>
+			</div>
+		</div> <!-- 정보 출력 -->
+	</div>
+</div> */}

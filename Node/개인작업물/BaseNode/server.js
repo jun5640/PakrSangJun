@@ -1,8 +1,7 @@
 const config = require('config');
 const path = require('path');
 var domain = require('domain').create();
-var engine = require('ejs-locals');
-var ejs = require('ejs');
+//var pixi = require('pixi');
 var bodyParser = require('body-parser');
 var express = require('express');
 var session = require('express-session');
@@ -15,8 +14,6 @@ const type = require('./common/type.js');
 var api = require('./routes/api.js');
 var routes = require('./routes/routes.js');
 var dbfunc = require('./lib/dbFunction');
-
-
 
 domain.on('error', function (err) {
     console.error('error : ' + err);
@@ -43,8 +40,8 @@ domain.run(function () {
     app.use(compression());
     
     app.use(express.static(path.join(__dirname, 'public')));
-    app.set('view engine', 'ejs');  // 렌러링 엔진 선택
-    app.engine('ejs', engine);      // 렌더링 엔진 설정
+    // app.set('view engine', 'ejs');  // 렌러링 엔진 선택
+    // app.engine('ejs', engine);      // 렌더링 엔진 설정
     app.disable('x-powered-by');    // 헤더 비활성화
 
     let env = config.util.getEnv('NODE_ENV');

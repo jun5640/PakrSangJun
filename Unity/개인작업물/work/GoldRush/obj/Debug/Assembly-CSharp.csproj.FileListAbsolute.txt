@@ -282,3 +282,7 @@ C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\UnityEdit
 C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\UnityEngine.SpatialTracking.pdb
 C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\UnityEditor.XR.LegacyInputHelpers.pdb
 C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\com.unity.multiplayer-hlapi.Runtime.pdb
+C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\Boo.Lang.dll
+C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\UnityEditor.UI.dll
+C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\Unity.AssetBundleBrowser.Editor.pdb
+C:\work\PakrSangJun\Unity\개인작업물\work\GoldRush\Temp\bin\Debug\UnityEditor.UI.xml

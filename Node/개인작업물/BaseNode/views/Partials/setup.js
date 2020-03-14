@@ -1,0 +1,65 @@
+﻿{/* <div class="container" id="option" style="display: none;">
+	<div class='row'>
+		<!-- 설정 선택 -->
+		<div class='col-xs-12 col-sm-4 col-md-3'>
+			<div class='menu-body' id='option-menu'>
+				<div class="btn-group pull-right" role="group">
+					<button type="button" class="btn btn-primary" id="requst-options">
+						<span class="glyphicon glyphicon-refresh"></span>
+					</button>
+				</div>
+			</div>
+			<div class = "requst-wait" id="options-wait">
+				<span><i class="fa fa-spinner fa-spin" ></i></span>
+			</div>
+			<div class='list-group pre-scrollable menu-list' id='option-list' >
+			</div>
+		</div> <!-- 설정 선택 -->
+
+		<!-- 설정 출력 -->
+		<div class='col-xs-12 col-sm-8 col-md-9' >
+			<div class = "requst-wait" id="option-wait">
+				<span><i class="fa fa-spinner fa-spin" ></i></span>
+			</div>
+			<div style='display:none;' id='option-detail'>
+				<!-- 관리 메뉴 -->
+				<nav class='navbar navbar-default'>
+					<div class='container'>
+						<div class='navbar-header'>
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-option-bar">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<label class='navbar-text' id='menu-option-name'></lable>
+						</div>
+						<div class='collapse navbar-collapse' id='menu-option-bar'>
+							<ul class="nav navbar-nav">
+								<li class='menu-option nav-item' func='option-save' > <a class='nav-link' href='#'>저 장</a></li>
+							</ul>
+						</div>
+					</div> <!-- container -->
+				</nav> <!-- 관리 메뉴 -->
+
+				<!-- 설정 상세 출력 -->
+				<div id='option-display'> 
+					<!-- 앤딩 관리 -->
+					<div id="option-Final">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label for="option-editor-final-open" class="col-sm-2 control-label">최종 연출 오픈</label>
+								<div class="col-sm-10">
+									<select class="form-control option-editor-final" id="option-editor-final-open">
+										<option value = "0">열기</option>
+										<option value = "1">닫기</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div> <!-- 앤딩 관리 -->
+				</div> <!-- 설정 상세 출력 -->
+			</div>
+		</div> <!-- 설정 출력 -->
+	</div>
+</div> */}

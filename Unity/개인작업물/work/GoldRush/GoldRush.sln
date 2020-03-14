@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{55943F80-5DE3-B115-EA2D-0D86A07DEF29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.AssetBundleBrowser.Editor", "Unity.AssetBundleBrowser.Editor.csproj", "{A74FE46D-E041-144B-AF7E-71FAC1AEA1E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.AssetBundleBrowser.Editor.Tests", "Unity.AssetBundleBrowser.Editor.Tests.csproj", "{FABF9AD3-5766-553B-4E02-434288A862FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{55943F80-5DE3-B115-EA2D-0D86A07DEF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55943F80-5DE3-B115-EA2D-0D86A07DEF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55943F80-5DE3-B115-EA2D-0D86A07DEF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74FE46D-E041-144B-AF7E-71FAC1AEA1E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74FE46D-E041-144B-AF7E-71FAC1AEA1E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74FE46D-E041-144B-AF7E-71FAC1AEA1E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74FE46D-E041-144B-AF7E-71FAC1AEA1E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FABF9AD3-5766-553B-4E02-434288A862FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FABF9AD3-5766-553B-4E02-434288A862FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FABF9AD3-5766-553B-4E02-434288A862FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FABF9AD3-5766-553B-4E02-434288A862FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

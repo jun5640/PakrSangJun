@@ -1,0 +1,158 @@
+﻿// <!DOCTYPE html>
+// <html lang='ko'>
+// <head>
+// 	<meta charset='utf-8'> 
+// 	<meta name='viewport' content='width=device-width, initial-scale=1'>
+// 	<title><%= title %></title>
+// 	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+// 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+//     <link rel='stylesheet' href='http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css'>
+// 	<link rel='stylesheet' href='/bootstrap-datetimepicker.min.css'>
+// 	<link rel='stylesheet' href='/main.css'>
+
+// 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+// 	<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+// 	<script src='https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js'></script>
+// 	<script src='bootstrap-datetimepicker.min.js'></script>
+ 
+// 	<script src='/module.js'></script>
+// 	<script src='/events.js'></script>
+// 	<script src='/main.js'></script>
+// </head>
+// <body>
+// 	<!-- 메뉴 구성-->
+// 	<nav class='navbar navbar-default'>
+// 	  <div class='container'>
+// 		<div class='navbar-header'>
+// 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+// 				<span class="sr-only">Toggle navigation</span>
+// 				<span class="icon-bar"></span>
+// 				<span class="icon-bar"></span>
+// 				<span class="icon-bar"></span>
+// 			</button>
+// 			<a class='navbar-brand' href='/'><%= title %></a>
+// 		</div>
+// 		<div class='collapse navbar-collapse' id='navbar'>
+// 		  <ul class="nav navbar-nav">
+// 			<li class='top-menu nav-item active' func='state' > <a class='nav-link' href='#'>상태</a></li>
+// 			<li class='top-menu nav-item' func='event' > <a class='nav-link' href='#'>이밴트</a></li>
+// 			<li class='top-menu nav-item' func='mail' > <a class='nav-link' href='#'>메일</a></li>
+// 			<li class='top-menu nav-item' func='option' > <a class='nav-link' href='#'>설정</a></li>
+// 		  </ul>
+// 		</div>
+// 	  </div> <!-- container -->
+// 	</nav>
+
+// 	<!-- 메인 화면 구성-->
+// 	<div class="container" id="state">
+// 		<div class = "requst-wait" id="users-state-wait">
+// 			<span><i class="fa fa-spinner fa-spin"></i></span>
+// 		</div>
+// 	</div> <!-- 메인 화면 구성-->
+
+// 	<!-- 이밴트 관리 -->
+// 	<div class="container" id="event" style="display: none;">
+// 		<div class='row'>
+// 			<!-- 관리 메뉴 -->
+// 			<nav class='navbar navbar-default'>
+// 				<div class='container'>
+// 					<div class='navbar-header'>
+// 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#event-bar">
+// 							<span class="sr-only">Toggle navigation</span>
+// 							<span class="icon-bar"></span>
+// 							<span class="icon-bar"></span>
+// 							<span class="icon-bar"></span>
+// 						</button>
+// 						<label class='navbar-text' id='event-name'></lable>
+// 					</div>
+// 					<div class='collapse navbar-collapse' id='event-bar'>
+// 						<ul class="nav navbar-nav">
+// 							<li class='event-menu nav-item' func='event-create' > <a class='nav-link' href='#'>추가</a></li>
+// 						</ul>
+// 					</div>
+// 				</div> <!-- container -->
+// 			</nav> <!-- 관리 메뉴 -->
+
+// 			<div class = "requst-wait" id="event-wait">
+// 				<span><i class="fa fa-spinner fa-spin" ></i></span>
+// 			</div>
+
+// 			<!-- 정보 출력 -->
+// 			<div style='display:none;' id='event-list'>
+// 				<div class='scrollable'>
+// 					<!-- 이밴트 정보 출력 -->
+// 					<div id='event-display'></div>
+// 				</div>
+// 			</div> <!-- 정보 출력 -->
+// 		</div>
+// 	</div> <!-- 이밴트 관리 -->
+
+// 	<!-- 설정 관리 -->
+// 	<div class="container" id="option" style="display: none;">
+// 		<div class='row'>
+// 			<!-- 설정 선택 -->
+// 			<div class='col-xs-12 col-sm-4 col-md-3'>
+// 				<div class='menu-body' id='option-menu'>
+// 					<div class="btn-group pull-right" role="group">
+// 						<button type="button" class="btn btn-primary" id="requst-options">
+// 							<span class="glyphicon glyphicon-refresh"></span>
+// 						</button>
+// 					</div>
+// 				</div>
+// 				<div class = "requst-wait" id="options-wait">
+// 					<span><i class="fa fa-spinner fa-spin" ></i></span>
+// 				</div>
+// 				<div class='list-group pre-scrollable menu-list' id='option-list' >
+// 				</div>
+// 			</div> <!-- 설정 선택 -->
+
+// 			<!-- 설정 출력 -->
+// 			<div class='col-xs-12 col-sm-8 col-md-9' >
+// 				<div class = "requst-wait" id="option-wait">
+// 					<span><i class="fa fa-spinner fa-spin" ></i></span>
+// 				</div>
+// 				<div style='display:none;' id='option-detail'>
+// 					<!-- 관리 메뉴 -->
+// 					<nav class='navbar navbar-default'>
+// 						<div class='container'>
+// 							<div class='navbar-header'>
+// 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-option-bar">
+// 									<span class="sr-only">Toggle navigation</span>
+// 									<span class="icon-bar"></span>
+// 									<span class="icon-bar"></span>
+// 									<span class="icon-bar"></span>
+// 								</button>
+// 								<label class='navbar-text' id='menu-option-name'></lable>
+// 							</div>
+// 							<div class='collapse navbar-collapse' id='menu-option-bar'>
+// 								<ul class="nav navbar-nav">
+// 									<li class='menu-option nav-item' func='option-save' > <a class='nav-link' href='#'>저 장</a></li>
+// 								</ul>
+// 							</div>
+// 						</div> <!-- container -->
+// 					</nav> <!-- 관리 메뉴 -->
+
+// 					<!-- 설정 상세 출력 -->
+// 					<div id='option-display'> 
+// 						<!-- 앤딩 관리 -->
+// 						<div id="option-Final">
+// 							<form class="form-horizontal">
+// 								<div class="form-group">
+// 									<label for="option-editor-final-open" class="col-sm-2 control-label">최종 연출 오픈</label>
+// 									<div class="col-sm-10">
+// 										<select class="form-control option-editor-final" id="option-editor-final-open">
+// 											<option value = "0">열기</option>
+// 											<option value = "1">닫기</option>
+// 										</select>
+// 									</div>
+// 								</div>
+// 							</form>
+// 						</div> <!-- 앤딩 관리 -->
+// 					</div> <!-- 설정 상세 출력 -->
+// 				</div>
+// 			</div> <!-- 설정 출력 -->
+// 		</div>
+// 	</div> <!-- 설정 관리 -->
+
+// </body>
+// </html>

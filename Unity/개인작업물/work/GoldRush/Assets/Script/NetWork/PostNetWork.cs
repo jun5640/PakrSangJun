@@ -12,7 +12,9 @@ namespace PostNetWork
 {
 	public class PostNetWork : SingletonBase<PostNetWork>
 	{
-		string url = "http://localhost:15001";
+		//string url = "http://localhost:15001";
+		string url = "http://13.125.231.219:56365";
+
 		JsonToActionConverter m_JsonToActionConverter = new JsonToActionConverter();
 
 		public void RequetPostFunc(BaseAction @action)
