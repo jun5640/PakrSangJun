@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectPoolBase<T> where T : class
 {
 	Dictionary<T, bool> Pools = new Dictionary<T, bool>();	// value 가 true 일 경우에는 대여중.
-	object o;
+	object o = new object();
 
 	public void AddObjectNuse(T add)	// 생성과 동시에 사용할 경우.
 	{

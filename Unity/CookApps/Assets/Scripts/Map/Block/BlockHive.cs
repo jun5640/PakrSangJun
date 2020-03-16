@@ -25,6 +25,11 @@ public class BlockHive : MonoBehaviour
 
 	public void SetBlockObject(GameObject go,bool setZeroPos = true)
 	{
+		if(go == null)
+		{
+			Debug.LogError("go null");
+			return;
+		}
 		m_renderer = go.GetComponent<SpriteRenderer>();
 		blockobj = go.GetComponent<BlockObject>();
 
@@ -44,6 +49,7 @@ public class BlockHive : MonoBehaviour
 				top = Resources.Load<Sprite>(img_top_path);
 			}
 			m_renderer.sprite = top;
+			blockobj.m_blockInfo.DieCount = 2;
 			SetBlockColor(Map.BLOCKCOLOR.NONE, false);
 		}
 		else if(type == Map.BLOCKTYPPE.BLOCK)

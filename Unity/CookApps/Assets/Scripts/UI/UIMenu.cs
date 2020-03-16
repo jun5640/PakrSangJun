@@ -31,4 +31,12 @@ public class UIMenu : UIManagerBase
 		SceneManager.LoadScene("Game");
 	}
 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+	}
+
 }
