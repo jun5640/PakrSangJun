@@ -21,7 +21,7 @@
     "fs": "0.0.1-security",
     "iab_verifier": "^0.1.2",
     "iap_verifier": "0.0.12",
-    "jsdom": "^16.2.0",
+    "jsdom": "^16.5.0",
     "locks": "^0.2.2",
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
